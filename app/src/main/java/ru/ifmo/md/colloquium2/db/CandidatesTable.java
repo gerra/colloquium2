@@ -47,4 +47,9 @@ public class CandidatesTable {
         db.execSQL("update " + TABLE_NAME + " set score = score + 1 where _id = " + id);
         updatePercents(db);
     }
+
+    public static void resetScore(SQLiteDatabase db) {
+        db.execSQL("update" + TABLE_NAME + " set score = 0");
+        db.execSQL("update" + TABLE_NAME + " set percent = 0");
+    }
 }

@@ -54,6 +54,10 @@ public class MySQLManager {
         CandidatesTable.increaseById(db, id);
     }
 
+    public void resetScore() {
+        CandidatesTable.resetScore(db);
+    }
+
     public void close() {
         if (db != null) {
             db.close();

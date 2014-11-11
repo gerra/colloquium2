@@ -77,12 +77,25 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_clear) {
-            //manager.clear();
+        if (id == R.id.action_reset) {
+            manager.resetScore();
+            stopVoting();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startVoting() {
+        ((Button)findViewById(R.id.votingButton)).setText("Stop voting");
+        ((Button)findViewById(R.id.addCandidateButton)).setClickable(false);
+        voting = true;
+    }
+
+    private void stopVoting() {
+        ((Button)findViewById(R.id.votingButton)).setText("Start voting");
+        ((Button)findViewById(R.id.addCandidateButton)).setClickable(true);
+        voting = false;
     }
 
     public void onAddClick(View view) {
@@ -93,13 +106,10 @@ public class MainActivity extends Activity {
 
     public void onVotingClick(View view) {
         if (voting) {
-            ((Button)findViewById(R.id.votingButton)).setText("Start voting");
-            ((Button)findViewById(R.id.addCandidateButton)).setClickable(true);
+            stopVoting();
         } else {
-            ((Button)findViewById(R.id.votingButton)).setText("Stop voting");
-            ((Button)findViewById(R.id.addCandidateButton)).setClickable(false);
+            startVoting();
         }
-        voting ^= true;
     }
 
     @Override
