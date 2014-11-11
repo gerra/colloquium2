@@ -49,7 +49,7 @@ public class CandidatesTable {
     }
 
     public static void resetScore(SQLiteDatabase db) {
-        db.execSQL("update" + TABLE_NAME + " set score = 0");
-        db.execSQL("update" + TABLE_NAME + " set percent = 0");
+        db.execSQL("update " + TABLE_NAME + " set score = 0");
+        db.execSQL("update " + TABLE_NAME + " set percent = 0");
     }
 }

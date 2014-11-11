@@ -80,6 +80,7 @@ public class MainActivity extends Activity {
         if (id == R.id.action_reset) {
             manager.resetScore();
             stopVoting();
+            cursor.requery();
             return true;
         }
 
